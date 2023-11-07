@@ -1,0 +1,65 @@
+.banner {
+    position: relative;
+    overflow: hidden; /* Asegura que la imagen no se desborde del contenedor */
+}
+
+.banner img {
+    max-width: 100%; /* Limita el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la relación de aspecto */
+    object-fit: cover; /* Ajusta la imagen manteniendo la relación de aspecto */
+}
+
+/* Otros estilos para el contenido, como h3 y ul */
+.contenido {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+.boton-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh; /* Ajusta la altura según tus necesidades */
+}
+
+.boton-container button {
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px; /* Ajusta el relleno según tus necesidades */
+    color: #FFF;
+    font-size: 18px; /* Ajusta el tamaño de la fuente según tus necesidades */
+    border-radius: 8px; /* Ajusta el radio de borde según tus necesidades */
+    position: relative;
+}
+
+#fotos{
+    font-size: 18px;
+    text-align: center;
+}
+.boton-container button::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        red, blue,deeppink, blue,
+        red, blue,deeppink, blue
+    );
+    background-size: 800%;
+    border-radius: 10px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+}
+@keyframes glowing {
+    0%{background-position: 0 0;}
+    50%{background-position: 400% 0;}
+    100%{background-position: 0 0;}
+}

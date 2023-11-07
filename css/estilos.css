@@ -1,0 +1,108 @@
+.row{
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	background: red;
+	display: flex;
+	padding: 5px;
+	BOX-SIZING: border-box;
+	width: 100%
+}
+.contenedor, .row{
+	margin-top: 80px;
+}
+
+.class{
+	font-size: 20px;
+	background-color: red;
+}
+.header {
+	background-color: royalblue ;
+}
+.titulo {
+	font-size: 24px;
+	padding: 20px 0;
+}
+.contenedor-conciertos {
+	background: violet;
+	border-radius: 15px;
+	min-height: 200px;	
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+}
+.banner {
+	background: violet;
+	border-radius: 15px;
+	text-align: center;
+	padding: 20px;
+	background-size: cover;
+	background-position: center center;
+	font-size: 20px;
+}
+.banner p, .banner h1{
+	color: blueviolet;
+	font-size: 18px;
+}
+.banner li, .banner h3{
+	color: blue;
+}
+.card {
+	background: rgb(159, 122, 159);
+	border-radius: 10px;
+	min-height: 200px;
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+}
+
+.card .textos {
+	height: 100%;
+}
+
+.contenedor {
+	flex-wrap:wrap;
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 40px 0;
+}
+
+.banner ul {
+	list-style: none;
+}
+
+.banner ul li {
+	margin: 15px;
+	font-weight: bold;
+}
+
+.textofachero {
+    background-color: #ff0000; /* Color de fondo verde */
+    color: white; /* Texto en color blanco */
+    padding: 15px; /* Relleno interno */
+    text-align: center; /* Texto centrado */
+    font-size: 18px; /* Tamaño de fuente */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 20px 0; /* Márgenes superior e inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+@media screen and (max-width: 900px) {
+	
+}
+
+@media screen and (max-width: 700px) {
+	
+}
+
+@media screen and (max-width: 600px) {
+
+}

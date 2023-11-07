@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EGDE">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+	<!--NavBar inicio-->
+	<link rel="stylesheet" href="css/navbar.css">
+	<!-- Icono para cuando se contrae la barra de navegación -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<!--NavBar fin-->
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="emergente.css">
+    <link rel="icon" href="500148 (1).ico">
+	<title>CONCIERTOS</title>
+	<link href="index.html">
+    <link href="index_biografy.html">
+    <link href="index_banners.html">
+    <link href="index_fotos.html">
+	<link href="index_form.html">
+</head>
+<body>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">Codo a Codo 4.0</label>
+		<ul>
+			<li><a href="index.html">Inicio </a></li>
+			<li><a href="index_biografy.html">Biografia</a></li>
+			<li><a href="index_banners.html">Registrese</a></li>
+			<li><a href="index_fotos.html">Fotos</a></li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="banner" style="background-image: url(img/1.jpg)">
+		<h1>Conciertos BA 2024</h1>
+		<BR>
+		<form action="/registrardatos.php" method="post">
+			<p>Seleccione uno o varios recitales (Presione Ctrl para seleccionar varios recitales)</p>
+			<br>
+			<BR>
+			<select name="RECITALES[]" size="20" multiple>
+				<option value="   1   "> 1 ......... LUIS MIGUEL</option>
+				<option value="   2   "> 2 ......... PAUL MACKARNEY</option>
+				<option value="   3   "> 3 ......... CALLEJERO FINO</option>
+				<option value="   4   "> 4 ......... TINI STOESEL</option>
+				<option value="   5   "> 5 ......... LGANTE</option>
+				<option value="   6   "> 6 ......... MONA GIMENEZ</option>
+			</select>
+			<br>
+			<button type="button" onclick="confirmarDatos()">Enviar</button>
+		</form>
+	</div>
+	
+	<div class="modal" id="miModal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal()">&times;</span>
+            <p id="datosConfirmados"></p>
+        </div>
+    </div>
+
+	<div class="alert alert-primary" role="alert">
+		<p> <center>Entradas disponibles!</center></p>
+	</div>
+	<script>
+		function confirmarDatos() {
+			var selectRecitales = document.querySelector('select[name="RECITALES[]"]');
+			
+			var opcionesSeleccionadas = Array.from(selectRecitales.selectedOptions).map(option => option.text);
+		
+			var mensaje = "El recital seleccionado";
+		
+			if (opcionesSeleccionadas.length === 1) {
+				var numeroRecital = opcionesSeleccionadas[0].split(' ')[0];
+				var nombreArtista = opcionesSeleccionadas[0].split(' ').slice(2).join(' ');
+				mensaje += " es el N° " + numeroRecital + " y es de " + nombreArtista;
+			} else {
+				mensaje += "es/son los siguientes:\n";
+				opcionesSeleccionadas.forEach(opcion => {
+					var numeroRecital = opcion.split(' ')[0];
+					var nombreArtista = opcion.split(' ').slice(2).join(' ');
+					mensaje += "- N° " + numeroRecital + ": " + nombreArtista + "\n";
+				});
+			}
+		
+			// Mostrar el mensaje de confirmación
+			var confirmacion = confirm(mensaje + "\n\n¿Son correctos estos datos?");
+		
+			// Verificar la respuesta y hacer algo en consecuencia
+			if (confirmacion) {
+				// Si el usuario hace clic en "Aceptar"
+				alert("¡Datos confirmados! Se enviará el formulario.");
+				// Aquí podrías agregar lógica para enviar el formulario
+			} else {
+				// Si el usuario hace clic en "Cancelar"
+				alert("Datos no confirmados. Por favor, revisa la selección.");
+				// Aquí podrías revertir cualquier cambio hecho en el formulario
+			}
+		}
+				
+		
+	</script>
+</body>
+</html>
+
+		<!-- 
+
+			alert ("$"+rupia+"seran"+resultado)
+			<button class="boton">Seleccione y llena tus datos</button>
+			<ul>
+	
+	   -->	
+		
+		
+		
+		
+			<!--<ul>
+			<li>	 1.......   LUIS MIGUEL </li>
+			<li>	 2.......   PAUL MACKARNEY </li>
+			<li>	 3.......   CALLEJERO FINO </li>
+			<li>	 4.......   TINI STOESEL </li>
+			<li>	 5.......   LGANTE </li>
+			<li>	 6.......   MONA GIMENEZ </li>
+		</ul>
+var c
+		document.write( seleccione opcion +C)
+</div>
+
+		<!--		<option value="   2   "> 2.......   PAUL MACKARNEY</option>
+				<option value="   3   "> 3.......   CALLEJERO FINO</option>
+				<option value="   4   "> 4.......   TINI STOESEL</option>
+				<option value="   5   "> 5.......   LGANTE</option>
+				<option value="   6   "> 6.......   MONA GIMENEZ</option>
+				
+		</ul>	
+					
+			-->
+				

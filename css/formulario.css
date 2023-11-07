@@ -1,0 +1,139 @@
+
+@import url('https://fonts.googleleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+
+#formularioyTexto{    
+    background: #03080a;
+}
+
+#miFormulario{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.contenedor{
+    width: 80%;
+    padding: 20px;
+}
+.contenedor h2{
+    width: 100%;
+    color: #45f3ff;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.contenedor .fila100{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.contenedor .fila100 .columna{
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+.contenedor .fila100 .inputBox{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #45f3ff;
+}
+.contenedor .fila100 .inputBox input,
+.contenedor .fila100 .inputBox.textarea textarea{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #000;
+}
+.contenedor .fila100 .inputBox .texto{
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+    pointer-events: none;
+}
+.contenedor .fila100 .inputBox input:focus + .texto,
+.contenedor .fila100 .inputBox input:valid + .texto{
+    top: -35px;
+    left: -10px;
+}
+.contenedor .fila100 .inputBox .linea{
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #45f3ff;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+.contenedor .fila100 .inputBox input:focus ~ .linea,
+.contenedor .fila100 .inputBox input:valid ~ .linea{
+    height: 100%;
+}
+.contenedor .fila100 .inputBox.textarea{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0;
+}
+.contenedor .fila100 .inputBox.textarea textarea{
+    height: 100%;
+    resize: none;
+}
+.contenedor .fila100 .inputBox textarea:focus + .texto,
+.contenedor .fila100 .inputBox textarea:valid + .texto{
+    top: -35px;
+    left: -10px;
+}
+.contenedor .fila100 .inputBox textarea:focus ~ .linea,
+.contenedor .fila100 .inputBox textarea:valid ~ .linea{
+    height: 100%;
+}
+input[type="submit"]{
+    border: none;
+    padding: 7px 35px;
+    cursor: pointer;
+    outline: none;
+    background: #45f3ff;
+    color: #000;
+    font-size: 18px;
+    border-radius: 2px;
+}
+
+/* Estilo para el mensaje de "primary" */
+#primary {
+    background-color: #3498db; /* Color azul, puedes cambiarlo */
+}
+
+/* Estilo para el mensaje de "secondary" */
+#secondary {
+    background-color: #34495e; /* Color gris, puedes cambiarlo */
+}
+
+.textofachero{
+    margin: 10px;
+}
+/* Estilo para el mensaje de "success" */
+#success {
+    background-color: #27ae60; /* Color verde, puedes cambiarlo */
+}

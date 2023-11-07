@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EGDE">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--NavBar Responsiva inicio-->
+	<link rel="stylesheet" href="css/navbar.css">
+	<!-- Icono para cuando se contrae la barra de navegación -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<!--NavBar Responsiva fin-->
+	
+	<link rel="stylesheet" href="css/animacion.css">
+
+	<link rel="stylesheet" href="css/estilos.css">
+	<!--Formulario Responsivo-->
+	<link rel="stylesheet" href="css/formulario.css">
+    <link rel="icon" href="500148 (1).ico">
+	<title>CONCIERTOS</title>
+</head>
+<body>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">Codo a Codo 4.0</label>
+		<ul>
+			<li><a href="index.html">Inicio </a></li>
+			<li><a href="index_biografy.html">Biografia</a></li>
+			<li><a class="active" href="index_banners.html">Registrese</a></li>
+			<li><a href="index_fotos.html">Fotos</a></li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<div id="formularioyTexto">
+		<form class="boton" id="miFormulario" method="get" action="INDEX_FORM.html">
+			<div class="contenedor">
+				<h6>Registrate ahora</h6>
+				<div class="fila100">
+					<div class="columna">
+						<div class="inputBox">
+							<input type="text" name="nombre" id="nombre" required>
+							<span class="texto">Nombre</span>
+							<span class="linea"></span>
+						</div>
+					</div>
+					<div class="columna">
+						<div class="inputBox">
+							<input type="text" name="apellido" id="apellido" required>
+							<span class="texto">Apellido</span>
+							<span class="linea"></span>
+						</div>
+					</div>
+				</div>
+				<div class="fila100">
+					<div class="columna">
+						<div class="inputBox">
+							<input type="email" name="email" id="email" required>
+							<span class="texto">Email</span>
+							<span class="linea"></span>
+						</div>
+					</div>
+					<div class="columna">
+						<div class="inputBox">
+							<input type="tel" name="telefono" id="telefono" required>
+							<span class="texto">Telefono</span>
+							<span class="linea"></span>
+						</div>
+					</div>
+				</div>
+				<div class="fila100">
+					<div class="columna">
+						<div class="inputBox textarea">
+							<textarea name="mensaje" id="mensaje" required></textarea>
+							<span class="texto">Escribe tu mensaje aquí...</span>
+							<span class="linea"></span>
+						</div>
+					</div>
+				</div>
+				<div class="fila100">
+					<div class="columna">
+						<input type="submit" value="Enviar">
+					</div>
+				</div>
+			</div>
+		</form>
+		
+		<div class="textofachero" id="primary">
+			<p>Entradas disponibles!</p>
+		</div>
+		<div class="textofachero" id="secondary">
+			<p>En campo se agotan!</p>
+		</div>
+		<div class="boton-container">
+			<form class="boton" method="get" action="INDEX_FORM.html">
+				<button type="submit" id="fotos"><p >Solicitala ya!</p></button>
+			</form>
+		</div>
+	</div>
+
+	<!--Verificacion del los campos necesarios-->
+	<script>
+		// Espera a que se cargue todo el documento
+		document.addEventListener("DOMContentLoaded", function () {
+			// Obtén una referencia al formulario
+			const formulario = document.getElementById("miFormulario");
+	
+			// Agrega un oyente para el evento de envío del formulario
+			formulario.addEventListener("submit", function (event) {
+				// Obtén los valores de los campos
+				const nombre = document.getElementById("nombre").value;
+				const apellido = document.getElementById("apellido").value;
+				const email = document.getElementById("email").value;
+				const telefono = document.getElementById("telefono").value;
+				const mensaje = document.getElementById("mensaje").value;
+	
+				// Realiza la validación, por ejemplo, verifica si los campos están vacíos
+				if (nombre === "" || apellido === "" || email === "" || telefono === "") {
+					// Si hay campos vacíos, evita el envío del formulario
+					alert("Por favor, complete todos los campos obligatorios.");
+					event.preventDefault(); // Evita el envío del formulario
+				}
+			});
+		});
+	</script>
+	
+</body>
+</html>
