@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EGDE">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+	<!--NavBar inicio-->
+	<link rel="stylesheet" href="css/navbar.css">
+	<!-- Icono para cuando se contrae la barra de navegación -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<!--NavBar fin-->
+	<link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="500148.ico">
+	<title>CONCIERTOS</title>
+	<link href="index.html">
+    <link href="biografia.html">
+    <link href="formContacto.html">
+    <link href="fotos.html">
+	<link href="compraBoletos.html">
+</head>
+<body>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+			<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">Codo a Codo 4.0</label>
+		<ul>
+			<li><a href="index.html">Inicio </a></li>
+			<li><a href="biografia.html">Biografia</a></li>
+			<li><a href="formContacto.html">Contacto</a></li>
+			<li><a href="fotos.html">Fotos</a></li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="banner" style="background-image: url(img/1.jpg)">
+		<h1>Conciertos BA 2024</h1>
+		<BR>
+		<form action="procesar_compra" method="post" id="miFormularioCompra">
+			<p>Seleccione uno o varios recitales (Presione Ctrl para seleccionar varios recitales)</p>
+			<br>
+			<BR>
+			<select name="RECITALES[]" size="20" multiple>
+				<option value="   1   "> 1 ......... LUIS MIGUEL</option>
+				<option value="   2   "> 2 ......... PAUL MACKARNEY</option>
+				<option value="   3   "> 3 ......... CALLEJERO FINO</option>
+				<option value="   4   "> 4 ......... TINI STOESEL</option>
+				<option value="   5   "> 5 ......... LGANTE</option>
+				<option value="   6   "> 6 ......... MONA GIMENEZ</option>
+			</select>
+			<br>
+			<button type="submit" > Enviar </button>
+		</form>
+	</div>
+
+	<div class="alert alert-primary" role="alert">
+		<p> <center>Entradas disponibles!</center></p>
+	</div>
+	<script>
+		function guardarDatos() {
+			const nombre = document.getElementById("nombre").value;
+			const apellido = document.getElementById("apellido").value;
+			const email = document.getElementById("email").value;
+			const telefono = document.getElementById("telefono").value;
+			const cantidad = document.getElementById("cantidad").value;
+			const idConcierto = {{ id_concierto | tojson | safe }};
+
+			// Obtener el valor seleccionado en el campo de recitales
+			const recitalesSelect = document.getElementById("recitalesSelect");
+			const idConciertos = [];
+			for (const option of recitalesSelect.selectedOptions) {
+				idConciertos.push(option.value.trim());  // Agregar el idConciertos seleccionado
+			}
+
+			// Almacenar los datos en cookies
+			document.cookie = `nombre=${nombre};`;
+			document.cookie = `apellido=${apellido};`;
+			document.cookie = `email=${email};`;
+			document.cookie = `telefono=${telefono};`;
+			document.cookie = `cantidad=${cantidad};`;
+
+			// Almacenar el idConciertos en una cookie separada
+			document.cookie = "idConciertos=" + JSON.stringify(idConciertos);
+		}
+	</script>
+
+</body>
+</html>
