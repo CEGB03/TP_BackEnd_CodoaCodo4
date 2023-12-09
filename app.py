@@ -7,27 +7,12 @@ import json
 
 app = Flask(__name__, template_folder='FrontEnd', static_folder='FrontEnd')
 CORS(app)  # Aplica CORS a toda la aplicación
-'''
-connection = pymysql.connect(host="backend-codo-a-codo.mysql.database.azure.com",
-                             port=3306,
-                             user="admin_cgomez453",
-                             password="Cgomez453",
-                             database="bd_cac_fsp",
-                             cursorclass=pymysql.cursors.DictCursor)
-                             
-with connection:
-    with connection.cursor() as cursor:
-        # Read a single record
-        sql = "SELECT * FROM clientes"
-        cursor.execute(sql, ('webmaster@python.org',))
-        result = cursor.fetchone()
-        print(result)
-'''
-# MySQL Configuration
-app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST', 'backend-codo-a-codo.mysql.database.azure.com')
-app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER', 'admin_cgomez453')
-app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD', 'Cgomez453')
-app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB', 'bd_cac_fsp')
+
+# Configuración de la conexión a la base de datos
+app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST', 'CEGB03.mysql.pythonanywhere-services.com')
+app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER', 'CEGB03')
+app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD', 'DEADPOOL2020')
+app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB', 'CEGB03$bd_codo_a_codo')
 
 mysql = MySQL(app)
 
@@ -103,15 +88,6 @@ def cargar_compra():
         idConciertos_str = request.form.get('id_concierto_visible')
         idConcierto = json.loads(idConciertos_str) if idConciertos_str else []
 
-        print("nombre:", nombre)
-        print("apellido:", apellido)
-        print("email:", email)
-        print("telefono:", telefono)
-        print("cantidad:", cantidad)
-        print("idConciertos_str:", idConciertos_str)
-        print("idConcierto:", idConcierto)
-
-
         # Insertar datos del cliente
         cur = mysql.connection.cursor()
 
@@ -149,6 +125,26 @@ def cargar_compra():
     except Exception as e:
         return f"Error al procesar la compra: {str(e)}"
 
+@app.route('/consultar/<tipo>', methods=['GET'])
+def consultar(tipo):
+    try:
+        # Construir la consulta según el tipo
+        consulta = f"SELECT * FROM {tipo}"
+
+        # Ejecutar la consulta
+        cur = mysql.connection.cursor()
+        cur.execute(consulta)
+        resultados = cur.fetchall()
+        cur.close()
+
+        # Convertir los resultados a un formato adecuado para la plantilla
+        filas = [list(resultado) for resultado in resultados]
+
+        # Mostrar los resultados en la plantilla
+        return render_template('consultas.html', tipo=tipo.capitalize(), filas=filas)
+
+    except Exception as e:
+        return f"Error al realizar la consulta: {str(e)}"
 
 if __name__ == '__main__':
     app.run(debug=True)

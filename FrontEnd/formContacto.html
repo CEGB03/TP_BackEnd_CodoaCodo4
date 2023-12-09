@@ -9,7 +9,7 @@
 	<!-- Icono para cuando se contrae la barra de navegación -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 	<!--NavBar Responsiva fin-->
-	
+
 	<link rel="stylesheet" href="/FrontEnd/css/animacion.css">
 
 	<link rel="stylesheet" href="/FrontEnd/css/estilos.css">
@@ -29,6 +29,7 @@
 			<li><a href="/FrontEnd/index.html">Inicio </a></li>
 			<li><a href="/FrontEnd/biografia.html">Biografia</a></li>
 			<li><a class="active" href="/FrontEnd/formContacto.html">Contacto</a></li>
+			<li><a href="compraBoletos.html">Comprar Boletos</a></li>
 			<li><a href="/FrontEnd/fotos.html">Fotos</a></li>
 		</ul>
 	</nav>
@@ -87,7 +88,7 @@
 				</div>
 			</div>
 		</form>
-		
+
 		<div class="textofachero" id="primary">
 			<p>Entradas disponibles!</p>
 		</div>
@@ -107,7 +108,7 @@
 		document.addEventListener("DOMContentLoaded", function () {
 			// Obtén una referencia al formulario
 			const formulario = document.getElementById("miFormulario");
-	
+
 			// Agrega un oyente para el evento de envío del formulario
 			formulario.addEventListener("submit", function (event) {
 				// Obtén los valores de los campos
@@ -116,7 +117,7 @@
 				const email = document.getElementById("email").value;
 				const telefono = document.getElementById("telefono").value;
 				const mensaje = document.getElementById("mensaje").value;
-	
+
 				// Realiza la validación, por ejemplo, verifica si los campos están vacíos
 				if (nombre === "" || apellido === "" || email === "" || telefono === "") {
 					// Si hay campos vacíos, evita el envío del formulario
@@ -126,6 +127,6 @@
 			});
 		});
 	</script>
-	
+
 </body>
 </html>

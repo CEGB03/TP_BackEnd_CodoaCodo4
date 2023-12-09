@@ -29,6 +29,7 @@
 			<li><a href="index.html">Inicio </a></li>
 			<li><a href="biografia.html">Biografia</a></li>
 			<li><a href="formContacto.html">Contacto</a></li>
+			<li><a class="active" href="compraBoletos.html">Comprar Boletos</a></li>
 			<li><a href="fotos.html">Fotos</a></li>
 		</ul>
 	</nav>
@@ -83,9 +84,9 @@
 								<p>Puedes comprar un máximo de {{ valor }}</p>
 							{% endif %}
 							<input type="hidden" name="id_concierto_visible" id="idConciertoVisible" value="{% if id_concierto %}{{ id_concierto }}{% endif %}">
-							{% if id_concierto %}
+							<!--{% if id_concierto %}
 								<p> el id es {{id_concierto}} </p>
-							{% endif %}
+							{% endif %}-->
 						</div>
 					</div>
 				</div>

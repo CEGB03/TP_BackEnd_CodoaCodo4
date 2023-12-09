@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EGDE">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--NavBar Responsiva inicio-->
+	<link rel="stylesheet" href="/FrontEnd/css/navbar.css">
+	<!-- Icono para cuando se contrae la barra de navegación -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<!--NavBar Responsiva fin-->
+
+	<link rel="stylesheet" href="/FrontEnd/css/animacion.css">
+
+	<link rel="stylesheet" href="/FrontEnd/css/estilos.css">
+	<!--Formulario Responsivo-->
+	<link rel="stylesheet" href="/FrontEnd/css/formulario.css">
+    <link rel="icon" href="/FrontEnd/500148.ico">
+	<title>CONCIERTOS</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">Codo a Codo 4.0</label>
+        <ul>
+            <li><a href="/FrontEnd/index.html">Inicio </a></li>
+			<li><a href="/FrontEnd/biografia.html">Biografia</a></li>
+			<li><a href="/FrontEnd/formContacto.html">Contacto</a></li>
+			<li><a href="/FrontEnd/fotos.html">Fotos</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>Consulta de {{ tipo }}</h1>
+
+    {% if filas %}
+        <table border="1">
+            <tr>
+                {% if tipo == 'Conciertos' %}
+                    <th>N°</th>
+                    <th>Concierto</th>
+                    <th>Cantidad Disponible</th>
+                    <th>Precio</th>
+                {% elif tipo == 'Consultas' %}
+                    <th>Número</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Consulta</th>
+                {% elif tipo == 'Clientes' %}
+                    <th>N°</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>idCompra</th>
+                {% elif tipo == 'Compras' %}
+                    <th>N°</th>
+                    <th>Numero</th>
+                    <th>Fecha</th>
+                    <th>CantCompra</th>
+                    <th>idCliente</th>
+                    <th>idConcierto</th>
+                {% else %}
+                    <!-- Estructura para otro tipo de consulta -->
+                {% endif %}
+            </tr>
+
+            {% for fila in filas %}
+                <tr>
+                    {% for valor in fila %}
+                        <td>{{ valor }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No hay resultados para mostrar.</p>
+    {% endif %}
+
+
+</body>
+</html>
