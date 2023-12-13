@@ -1,9 +1,9 @@
-from flask import Flask, jsonify, render_template, request
-from flask_mysqldb import MySQL
+from flask import Flask, jsonify, render_template, request  # Framework web para Python
+from flask_mysqldb import MySQL  # Extensión para interactuar con MySQL en Flask
 from datetime import datetime  # Para obtener la fecha actual
-from flask_cors import CORS  # Importa la extensión
-import os  # Import the os module for environment variables
-import json
+from flask_cors import CORS  # Para permitir solicitudes desde un dominio diferente (CORS)
+import os  # Módulo para interactuar con el sistema operativo junto a las variables de entorno
+import json  # Para trabajar con datos en formato JSON
 
 app = Flask(__name__, template_folder='FrontEnd', static_folder='FrontEnd')
 CORS(app)  # Aplica CORS a toda la aplicación
